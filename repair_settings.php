@@ -195,6 +195,7 @@ function action_show_settings()
 			'boarddir' => array('flat', 'string'),
 			'sourcedir' => array('flat', 'string'),
 			'cachedir' => array('flat', 'string'),
+			'extdir' => array('flat', 'string'),
 			'librarydir' => array('flat', 'string'),
 			'controllerdir' => array('flat', 'string'),
 			'attachmentUploadDir' => array('db', 'array_string'),
@@ -223,6 +224,9 @@ function action_show_settings()
 
 	if (file_exists(dirname(__FILE__) . '/cache'))
 		$known_settings['path_url_settings']['cachedir'][2] = realpath(dirname(__FILE__) . '/cache');
+
+	if (file_exists(dirname(__FILE__) . '/sources/ext'))
+		$known_settings['path_url_settings']['extdir'][2] = realpath(dirname(__FILE__) . '/sources/ext');
 
 	if (file_exists(dirname(__FILE__) . '/sources/subs'))
 		$known_settings['path_url_settings']['librarydir'][2] = realpath(dirname(__FILE__) . '/sources/subs');
@@ -744,6 +748,8 @@ function load_language_data()
 	$txt['boarddir'] = 'Forum Directory';
 	$txt['sourcedir'] = 'Sources Directory';
 	$txt['cachedir'] = 'Cache Directory';
+	$txt['extdir'] = 'External libraries Directory';
+	$txt['languagedir'] = 'Languages Directory';	
 	$txt['librarydir'] = 'Library Directory';
 	$txt['controllerdir'] = 'Controller Directory';
 	$txt['attachmentUploadDir'] = 'Attachment Directory';
